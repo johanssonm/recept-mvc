@@ -1,7 +1,24 @@
 ﻿
 @{
-    ViewBag.Title = "Hello from our Detail view";
+    ViewBag.Title = "Hello from or Detail view";
+    var pageTitle = "Spaghetti Bolognese";
+    var receptID = 150;
+    var description = "<em>Best bolognese recipe!</em> Takes a long time but worth it. Veal easily substituted with more of other meats. Also veal Demi grace can be eliminated or substitute a beef broth & roux combo";
+    string[] ingredients =
+    {
+        "1/2 pound ground veal",
+        "freshly ground pepper",
+        "salt",
+        "grated nutmeg (Freshly, to taste)",
+        "1/2 cup dry white wine "
+    };
 }
 
-<h2>Hello from our Detail view</h2>
+<h1>@pageTitle</h1>
+<h2>@receptID</h2>
+<h5>Description:</h5>
+<div>@Html.Raw(description):</div>
+
+<h5>Ingredients:</h5>
+<div>@ingredients:</div>
 
