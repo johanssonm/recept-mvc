@@ -9,10 +9,15 @@ namespace Recept.Controllers
     public class ReceptController : Controller
     {
 
-        public string Detail()
+        public ActionResult Detail()
         {
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday)
+            {
 
-            return "Hello world!";
+                return new RedirectResult("/");
+            }
+
+            return Content("Hellow world!");
         }
     }
 }
