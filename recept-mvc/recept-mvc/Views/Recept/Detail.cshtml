@@ -1,31 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "Hello from or Detail view";
-    var pageTitle = "Spaghetti Bolognese";
-    var receptID = 150;
-    var description = "<em>Best bolognese recipe!</em> Takes a long time but worth it. Veal easily substituted with more of other meats. Also veal Demi grace can be eliminated or substitute a beef broth & roux combo";
-    string[] ingredients =
-    {
-        "1/2 pound ground veal",
-        "freshly ground pepper",
-        "salt",
-        "grated nutmeg (Freshly, to taste)",
-        "1/2 cup dry white wine "
-    };
+
 }
 
-<h1>@pageTitle</h1>
-<h2>@receptID</h2>
+<h1>@ViewBag.Title</h1>
+<h2>@ViewBag.ReceptID</h2>
 <h5>Description:</h5>
-<div>@Html.Raw(description):</div>
+<div>@Html.Raw(ViewBag.Description):</div>
 
-@if (ingredients.Length > 0)
+@if (ViewBag.Ingredients.Length > 0)
 {
 
     <h5>Ingredients:</h5>
     <div>
         <ul>
-            @foreach (var tmp in ingredients)
+            @foreach (var tmp in ViewBag.Ingredients)
             {
 
                 <li>@tmp</li>
