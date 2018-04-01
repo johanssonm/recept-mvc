@@ -11,13 +11,7 @@ namespace Recept.Controllers
 
         public ActionResult Detail()
         {
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday)
-            {
-
-                return new RedirectResult("/");
-            }
-
-            return Content("Hellow world!");
+            return View();
         }
     }
 }
