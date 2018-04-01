@@ -19,6 +19,20 @@
 <h5>Description:</h5>
 <div>@Html.Raw(description):</div>
 
-<h5>Ingredients:</h5>
-<div>@ingredients:</div>
+@if (ingredients.Length > 0)
+{
+
+    <h5>Ingredients:</h5>
+    <div>
+        <ul>
+            @foreach (var tmp in ingredients)
+            {
+
+                <li>@tmp</li>
+            }
+        </ul>
+
+    </div>
+
+}
 
