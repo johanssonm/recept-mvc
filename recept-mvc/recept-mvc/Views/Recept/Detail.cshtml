@@ -1,27 +1,35 @@
-﻿
+﻿@using System.Activities.Statements
+@model Receptbok.Models.Recept
+
 @{
 
 }
 
-<h1>@ViewBag.Title</h1>
-<h2>@ViewBag.ReceptID</h2>
-<h5>Description:</h5>
-<div>@Html.Raw(ViewBag.Description):</div>
+<h2>@Model.DisplayText</h2>
 
-@if (ViewBag.Ingredients.Length > 0)
-{
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.Rubrik</h5>
+            <h5><label>Issue #:</label> @Model.ReceptID</h5>
+            <h5><label>Favorite:</label> @(Model.Favorit ? "Yes" : "No")</h5>
+            <h5>Ingredienser:</h5>
+            <div>
+                <ul>
+                    
+                    @foreach (var tmp in Model.Ingredienser)
+                    {
+                        <li>@tmp </li>
+                    }
+                </ul>
 
-    <h5>Ingredients:</h5>
-    <div>
-        <ul>
-            @foreach (var tmp in ViewBag.Ingredients)
-            {
-
-                <li>@tmp</li>
-            }
-        </ul>
-
+            </div>
+        </div>
+        <h5>Beskrivning</h5>
+        @Model.BeskrivningHTML
     </div>
-
-}
-
+    <div class="col-md-6">
+        <img src="/Images/tofu-bolognese.jpg"
+             alt="Tofu Bolognese" class="img-responsive" />
+    </div>
+</div>

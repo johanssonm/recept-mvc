@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace recept_mvc.Models
+namespace Receptbok.Models
 {
     public class Recept
     {
         public int ReceptID { get; set; }
         public string Rubrik { get; set; }
         public string BeskrivningHTML { get; set; }
-        public Ingredienser[] Ingredienser { get; set; }
+        public string[] Ingredienser { get; set; }
         public bool Favorit { get; set; }
 
-        public string DisplayText
+        public Recept()
         {
-            get { return Rubrik + " " + ReceptID; }
+            
+        }
+        public Recept(int receptid, string receptrubrik)
+        {
+            ReceptID = receptid;
+            Rubrik = receptrubrik;
+
         }
 
-       public string CoverImageFilename
-       {
-           get { return Rubrik.Replace(" ", "-").ToLower() + "-" + ReceptID.ToString();  }
-       }
+        public string DisplayText => Rubrik + " " + ReceptID;
+    
+
+       public string CoverImageFilename => Rubrik.Replace(" ", "-").ToLower() + "-" + ReceptID;
+       
     }
 }
